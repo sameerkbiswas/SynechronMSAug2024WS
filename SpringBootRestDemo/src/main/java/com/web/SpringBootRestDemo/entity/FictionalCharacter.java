@@ -2,7 +2,17 @@ package com.web.SpringBootRestDemo.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+//@ToString
 @Entity
 //@Table(name = "fictional_character")
 public class FictionalCharacter {
@@ -14,84 +24,23 @@ public class FictionalCharacter {
     private String name;
     @Column(length = 150, nullable = false)
     private String house;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="wandid")
-    //@JsonIgnore() // REST API endpoints
-    private Wand wand;
     @Column(length = 150, nullable = false)
     private String bio;
     private String imageurl;
+    
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="wandid")
+    //@JsonIgnore() // REST API endpoints
+   
+    private Wand wand;
 
-    public FictionalCharacter() {
+	@Override
+	public String toString() {
+		return "FictionalCharacter [id=" + id + ", name=" + name + ", house=" + house + ", bio=" + bio + ", imageurl="
+				+ imageurl + "]";
+	}
+    
 
-    }
-
-    public FictionalCharacter(String name, String house, Wand wand, String bio, String imageurl) {
-        this.name = name;
-        this.house = house;
-        this.wand = wand;
-        this.bio = bio;
-        this.imageurl = imageurl;
-    }
-
-    @Override
-    public String toString() {
-        return "FictionalCharacter{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", house='" + house + '\'' +
-                ", bio='" + bio + '\'' +
-                ", imageurl='" + imageurl + '\'' +
-                '}';
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getHouse() {
-        return house;
-    }
-
-    public void setHouse(String house) {
-        this.house = house;
-    }
-
-    public Wand getWand() {
-        return wand;
-    }
-
-    public void setWand(Wand wand) {
-        this.wand = wand;
-    }
-
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
-
-    public String getImageurl() {
-        return imageurl;
-    }
-
-    public void setImageurl(String imageurl) {
-        this.imageurl = imageurl;
-    }
+    
 
 }

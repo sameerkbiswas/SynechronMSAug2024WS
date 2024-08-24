@@ -2,9 +2,19 @@ package com.web.SpringBootRestDemo.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "wand")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+//@ToString
 public class Wand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,67 +24,14 @@ public class Wand {
     private String length;
 
     @OneToOne(mappedBy = "wand")
-    @JsonIgnore
+//    @JsonIgnore
     private FictionalCharacter character;
 
-    public Wand() {
+//	@Override
+//	public String toString() {
+//		return "Wand [id=" + id + ", wood=" + wood + ", core=" + core + ", length=" + length + "]";
+//	}
 
-    }
-
-    public Wand(String wood, String core, String length) {
-        this.wood = wood;
-        this.core = core;
-        this.length = length;
-    }
-
-    public FictionalCharacter getCharacter() {
-        return character;
-    }
-
-    public void setCharacter(FictionalCharacter character) {
-        this.character = character;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getWood() {
-        return wood;
-    }
-
-    public void setWood(String wood) {
-        this.wood = wood;
-    }
-
-    public String getCore() {
-        return core;
-    }
-
-    public void setCore(String core) {
-        this.core = core;
-    }
-
-    public String getLength() {
-        return length;
-    }
-
-    public void setLength(String length) {
-        this.length = length;
-    }
-
-    @Override
-    public String toString() {
-        return "Wand{" +
-                "id=" + id +
-                ", wood='" + wood + '\'' +
-                ", core='" + core + '\'' +
-                ", length='" + length + '\'' +
-                '}';
-    }
+     
 }
 
