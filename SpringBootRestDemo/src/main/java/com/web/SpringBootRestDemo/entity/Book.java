@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 @Entity
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int bookid;
     private String title;
     private String author;

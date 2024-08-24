@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.web.SpringBootRestDemo.entity.Employee;
 import com.web.SpringBootRestDemo.service.EmployeeService;
+import com.web.SpringBootRestDemo.service.EmployeeServiceRepo;
 import com.web.SpringBootRestDemo.utility.AppConstants;
 import com.web.SpringBootRestDemo.utility.Status;
 
@@ -32,9 +33,9 @@ import jakarta.persistence.EntityNotFoundException;
 public class EmployeeRestController {
 
 	//@Autowired 
-	private EmployeeService employeeService;
+	private EmployeeServiceRepo employeeService;
 
-	public EmployeeRestController(EmployeeService employeeService) {
+	public EmployeeRestController(EmployeeServiceRepo employeeService) {
 		System.out.println("emp constructor");
 		this.employeeService = employeeService;
 	}
