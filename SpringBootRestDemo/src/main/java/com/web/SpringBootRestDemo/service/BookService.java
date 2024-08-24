@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.web.SpringBootRestDemo.entity.Book;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class BookService {
 
@@ -77,7 +79,7 @@ public class BookService {
             if (ob.getBookid() == id)
                 return ob;
         }
-        throw new RuntimeException("Book with id "+id+" does not exists");
+        throw new EntityNotFoundException("Book with id "+id+" does not exists");
 
     }
 }

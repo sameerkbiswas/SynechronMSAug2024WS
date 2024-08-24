@@ -18,10 +18,11 @@ public class EmployeeService {
 	
 	public EmployeeService() {
 		employees = new ArrayList<>();
-		employees.add(new Employee(1, "Shalini", "s@g.c", "1212121212", "sha"));
-		employees.add(new Employee(2, "Meena", "m@g.c", "8787878787", "me"));
-		employees.add(new Employee(3, "Alok", "a@g.c", "1212121212", "al"));
-		employees.add(new Employee(4, "Aman", "am@g.c", "1212121212", "am"));
+		
+		employees.add(new Employee(1, "Shalini", "s@g.c", "1212121212",0, "sha"));
+		employees.add(new Employee(2, "Meena", "m@g.c", "8787878787", 0,"me"));
+		//employees.add(new Employee(3, "Alok", "a@g.c", "1212121212", "al",0));
+		//employees.add(new Employee(4, "Aman", "am@g.c", "1212121212", "am",""));
 	}
 	
 	public List<Employee> getEmployees() {

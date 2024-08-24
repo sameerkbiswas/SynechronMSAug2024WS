@@ -41,65 +41,65 @@ public class BookRestController {
     @GetMapping("/{id}")
     public ResponseEntity<Object> getBookById(@PathVariable  int id){
         Map<String, Object> map = new HashMap<>();
-        try {
+       // try {
             map.put(AppConstants.STATUS, Status.SUCCESS);
             map.put("book",bookService.getBookById(id) );
             return ResponseEntity.ok(map);
-        }
-        catch (RuntimeException e){
-            map.put(AppConstants.STATUS, Status.FAILURE);
-            map.put("error",e.getMessage());
-            return ResponseEntity.badRequest().body(map);
-        }
+//        }
+//        catch (RuntimeException e){
+//            map.put(AppConstants.STATUS, Status.FAILURE);
+//            map.put("error",e.getMessage());
+//            return ResponseEntity.badRequest().body(map);
+//        }
     }
 
     @PostMapping
     public ResponseEntity<Object> addBook(@RequestBody  Book book){
         System.out.println("Book "+book);
         Map<String, Object> map = new HashMap<>();
-        try {
+        //try {
             map.put(AppConstants.STATUS, Status.SUCCESS);
             map.put("book",bookService.addNewBook(book) );
             return ResponseEntity.ok(map);
-        }
-        catch (RuntimeException e){
-            map.put(AppConstants.STATUS, Status.FAILURE);
-            map.put("error",e.getMessage());
-            return ResponseEntity.badRequest().body(map);
-        }
+  //      }
+//        catch (RuntimeException e){
+//            map.put(AppConstants.STATUS, Status.FAILURE);
+//            map.put("error",e.getMessage());
+//            return ResponseEntity.badRequest().body(map);
+//        }
     }
 
     @PutMapping
     public ResponseEntity<Object> updateBook(@RequestBody  Book book){
         System.out.println("Book "+book);
         Map<String, Object> map = new HashMap<>();
-        try {
+       // try {
             map.put(AppConstants.STATUS, Status.SUCCESS);
             map.put("book",bookService.updateBook(book) );
             return ResponseEntity.ok(map);
-        }
-        catch (RuntimeException e){
-            map.put(AppConstants.STATUS, Status.FAILURE);
-            map.put("error",e.getMessage());
-            return ResponseEntity.badRequest().body(map);
-        }
+//        }
+//        catch (RuntimeException e){
+//            map.put(AppConstants.STATUS, Status.FAILURE);
+//            map.put("error",e.getMessage());
+//            return ResponseEntity.badRequest().body(map);
+//        }
     }
 
     @DeleteMapping ("/{id}")
     public ResponseEntity<Object> deleteBook(@PathVariable  int id){
         Map<String, Object> map = new HashMap<>();
-        try {
+       // try {
             map.put(AppConstants.STATUS, Status.SUCCESS);
             if(bookService.deleteBook(id)) {
                 map.put("message", "Book deleted successfully");
                 return ResponseEntity.ok(map);
             }
-        }
-        catch (RuntimeException e){
-            map.put(AppConstants.STATUS, Status.FAILURE);
-            map.put("error",e.getMessage());
-
-        }
+//        }
+//        catch (RuntimeException e){
+//            map.put(AppConstants.STATUS, Status.FAILURE);
+//            map.put("error",e.getMessage());
+//
+//        }
         return ResponseEntity.badRequest().body(map);
     }
 }
