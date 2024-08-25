@@ -25,6 +25,7 @@ public class SpringBootRestDemoApplication {
 		wand.setCore("hp core");
 		wand.setLength("11 inch");
 		wand.setWood("hardwood");
+	
 		//wand = wandRepo.save(wand);
 		
 		FictionalCharacter ob1 = new FictionalCharacter(1, "HP", "Gryffinder", "harry potter bio", "", wand);
