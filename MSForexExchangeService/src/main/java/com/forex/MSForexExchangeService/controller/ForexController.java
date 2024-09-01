@@ -2,6 +2,7 @@ package com.forex.MSForexExchangeService.controller;
 
 import com.forex.MSForexExchangeService.model.CurrencyExcchange;
 import com.forex.MSForexExchangeService.repository.ExchangeRepository;
+import io.micrometer.observation.annotation.Observed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,8 @@ public class ForexController {
     @Autowired
     Environment environment;
     @GetMapping("/forex-exchange/from/{from}/to/{to}")
+    @Observed(name = "user.name", contextualName = "FS --> CCS",
+            lowCardinalityKeyValues = {"userType","userType2"})
     public CurrencyExcchange retrieveExchangeValue
             (@PathVariable String from, @PathVariable String to){
     	System.out.println(repository.count());
