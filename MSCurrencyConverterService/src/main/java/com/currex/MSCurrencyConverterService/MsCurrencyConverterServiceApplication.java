@@ -16,13 +16,14 @@ public class MsCurrencyConverterServiceApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(MsCurrencyConverterServiceApplication.class, args);
+
 	}
 
 
-//	@Bean
-//	@LoadBalanced
-//	public RestTemplate template(){
-//		return new RestTemplate();
-//	}
+	@Bean
+	@LoadBalanced
+	public RestTemplate template(){
+		return new RestTemplate();
+	}
 }
 
